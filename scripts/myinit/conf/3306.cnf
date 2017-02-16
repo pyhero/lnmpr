@@ -1,0 +1,101 @@
+[mysqld]
+
+# GENERAL #
+user				= mysql
+port				= 3306
+server_id			= 863306
+default_storage_engine		= InnoDB
+socket				= /ROOT/tmp/mysql-3306.sock
+basedir				= /ROOT/server/mysql-5.6
+
+# slave
+#read_only			= 1
+#log-slave-updates		= 1
+
+# SAFETY #
+max_allowed_packet		= 16M
+max_connect_errors		= 10000
+
+# DATA STORAGE #binlog-format
+datadir				= /ROOT/data/mysql/3306
+
+# BINARY LOGGING #
+log-bin				= /ROOT/log/mybinlog/3306/3306-bin
+log-bin-index			= /ROOT/log/mybinlog/3306/3306-bin.index
+relay-log			= /ROOT/log/mybinlog/3306/3306-relay
+relay-log-index			= /ROOT/log/mybinlog/3306/3306-relay.index
+log_bin_trust_function_creators	= 1
+max_binlog_size			= 512M
+max_binlog_cache_size		= 64M
+binlog_format			= mixed
+expire_logs_days		= 16
+#sync_binlog			= 1
+#log_slave_updates               = 1
+
+# CACHES AND LIMITS #
+tmp_table_size			= 64M
+max_heap_table_size		= 32M
+bulk_insert_buffer_size		= 64M
+query_cache_type		= 0
+query_cache_size		= 0
+sort_buffer_size		= 4M
+read_buffer_size		= 4M
+read_rnd_buffer_size		= 2M
+join_buffer_size		= 2M
+max_connections			= 10000
+max_user_connections		= 3000
+thread_cache_size		= 128
+open_files_limit		= 20480
+table_definition_cache		= 4096
+table_open_cache		= 4096
+wait_timeout			= 60
+interactive_timeout		= 120
+character-set-server		= utf8
+back_log			= 600
+skip-name-resolve 
+skip-external-locking
+skip-symbolic-links
+
+explicit_defaults_for_timestamp = 1
+
+# MyISAM #
+key_buffer_size			= 64M
+myisam_sort_buffer_size		= 64M
+myisam_recover			= FORCE,BACKUP
+myisam_repair_threads		= 1
+
+# INNODB #
+innodb_data_home_dir		= /ROOT/data/mysql/3306
+innodb_data_file_path		= ibdata1:200M:autoextend
+innodb_log_group_home_dir	= /ROOT/log/mysql/3306
+innodb_log_files_in_group	= 2
+innodb_log_file_size		= 512M
+innodb_log_buffer_size		= 64M
+innodb_flush_log_at_trx_commit	= 2
+innodb_buffer_pool_size		= 512M
+innodb_file_per_table		= 1
+innodb_status_file		= 1
+innodb_io_capacity		= 500
+innodb_max_dirty_pages_pct	= 90
+innodb_file_format		= Barracuda 
+innodb_support_xa		= 0
+innodb_thread_concurrency	= 8
+innodb-read-io-threads		= 8
+innodb-write-io-threads		= 8
+innodb_lock_wait_timeout	= 120
+innodb_flush_method		= O_DIRECT
+
+
+# LOGGING #
+log-error			= /ROOT/log/mysql/3306/error.log
+log-warnings			= 1
+#log_queries_not_using_indexes	= 1
+slow_query_log			= 1
+long_query_time			= 1
+slow_query_log_file		= /ROOT/log/mysql/3306/slow.log
+
+# AB
+replicate_wild_ignore_table = information_schema.%
+#replicate_wild_ignore_table = mysql.%
+replicate_wild_ignore_table = test.%
+

@@ -1,2 +1,3 @@
 # lnmpr
-nginx mysql php redis  init
+
+* nginx mysql php redis  init scripts
