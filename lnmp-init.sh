@@ -69,7 +69,7 @@ create_user_redis () {
 }
 
 notice () {
-	echo -e "\n\e[35mGo to renew your dir's owner:\n/ROOT/data\n/ROOT/log\e[0m..."
+	echo -e "\n\e[35mGo to renew your dir's owner:\n/ROOT/data\n/ROOT/logs\e[0m..."
 }
 
 while : ; do
@@ -143,8 +143,8 @@ install_nginx () {
 
 	# mkdir temp directory
 	mkdir -p /ROOT/data/nginx/temp/client /ROOT/data/nginx/temp/proxy /ROOT/data/nginx/temp/fastcgi /ROOT/data/nginx/temp/uwsgi /ROOT/data/nginx/temp/scgi
-	mkdir -p /ROOT/log/nginx
-	chown -R www.www /ROOT/data/nginx /ROOT/log/nginx
+	mkdir -p /ROOT/logs/nginx
+	chown -R www.www /ROOT/data/nginx /ROOT/logs/nginx
 
 	# copy configure files and start scripts
 	rsync -az --delete $conf/nginx /ROOT/conf/
@@ -155,7 +155,7 @@ install_nginx () {
 	chkconfig nginx on
 
 	# rotatelog configure
-	mkdir -p /ROOT/log/nginx/Rotates
+	mkdir -p /ROOT/logs/nginx/Rotates
 	rsync -az $conf/log/nginx /etc/logrotate.d/
 }
 
@@ -173,8 +173,8 @@ install_php () {
 	make > /dev/null && make install > /dev/null
 	test_act
 
-	mkdir -p /ROOT/log/php /ROOT/log/php-fpm
-	chown -R www.www /ROOT/log/php-fpm /ROOT/log/php
+	mkdir -p /ROOT/logs/php /ROOT/logs/php-fpm
+	chown -R www.www /ROOT/logs/php-fpm /ROOT/logs/php
 	rsync -az --delete $conf/php /ROOT/conf/
 
 	# install extend
@@ -203,7 +203,7 @@ install_php () {
 	chkconfig php-fpm on
 
 	# rotatelog configure
-	mkdir -p /ROOT/log/php-fpm/Rotates
+	mkdir -p /ROOT/logs/php-fpm/Rotates
 	rsync -az $conf/log/php-fpm /etc/logrotate.d/
 	cd $DIR
 }
@@ -222,9 +222,9 @@ install_mysql () {
 	make > /dev/null && make install > /dev/null
 	test_act
 
-	mkdir -p /ROOT/log/mysql/3306 /ROOT/log/mybinlog/3306 /ROOT/data/mysql/3306
-	chown -R mysql.mysql /ROOT/log/mysql /ROOT/log/mybinlog /ROOT/data/mysql
-	chmod 750 /ROOT/log/mybinlog /ROOT/data/mysql
+	mkdir -p /ROOT/logs/mysql/3306 /ROOT/logs/mybinlog/3306 /ROOT/data/mysql/3306
+	chown -R mysql.mysql /ROOT/logs/mysql /ROOT/logs/mybinlog /ROOT/data/mysql
+	chmod 750 /ROOT/logs/mybinlog /ROOT/data/mysql
 	rsync -az --delete $conf/mysql/3306.cnf /ROOT/data/mysql/3306/
 	mydef=/etc/my.cnf
 	if [ -f $mydef ];then
@@ -260,8 +260,8 @@ install_redis () {
 	make > /dev/null && make PREFIX=/ROOT/ install > /dev/null
 	test_act
 
-	mkdir -p /ROOT/log/redis /ROOT/data/redis/6379 /ROOT/conf/redis
-	chown -R redis.redis /ROOT/log/redis /ROOT/data/redis/6379
+	mkdir -p /ROOT/logs/redis /ROOT/data/redis/6379 /ROOT/conf/redis
+	chown -R redis.redis /ROOT/logs/redis /ROOT/data/redis/6379
 	rsync -az --delete $conf/reids/6379.conf /ROOT/conf/redis
 
 	rsync -az $plugin/redis-6379 /etc/init.d/

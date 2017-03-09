@@ -20,10 +20,10 @@ max_connect_errors		= 10000
 datadir				= /ROOT/data/mysql/3306
 
 # BINARY LOGGING #
-log-bin				= /ROOT/log/mybinlog/3306/3306-bin
-log-bin-index			= /ROOT/log/mybinlog/3306/3306-bin.index
-relay-log			= /ROOT/log/mybinlog/3306/3306-relay
-relay-log-index			= /ROOT/log/mybinlog/3306/3306-relay.index
+log-bin				= /ROOT/logs/mybinlog/3306/3306-bin
+log-bin-index			= /ROOT/logs/mybinlog/3306/3306-bin.index
+relay-log			= /ROOT/logs/mybinlog/3306/3306-relay
+relay-log-index			= /ROOT/logs/mybinlog/3306/3306-relay.index
 log_bin_trust_function_creators	= 1
 max_binlog_size			= 512M
 max_binlog_cache_size		= 64M
@@ -67,7 +67,7 @@ myisam_repair_threads		= 1
 # INNODB #
 innodb_data_home_dir		= /ROOT/data/mysql/3306
 innodb_data_file_path		= ibdata1:200M:autoextend
-innodb_log_group_home_dir	= /ROOT/log/mysql/3306
+innodb_log_group_home_dir	= /ROOT/logs/mysql/3306
 innodb_log_files_in_group	= 2
 innodb_log_file_size		= 512M
 innodb_log_buffer_size		= 64M
@@ -87,12 +87,12 @@ innodb_flush_method		= O_DIRECT
 
 
 # LOGGING #
-log-error			= /ROOT/log/mysql/3306/error.log
+log-error			= /ROOT/logs/mysql/3306/error.log
 log-warnings			= 1
 #log_queries_not_using_indexes	= 1
 slow_query_log			= 1
 long_query_time			= 1
-slow_query_log_file		= /ROOT/log/mysql/3306/slow.log
+slow_query_log_file		= /ROOT/logs/mysql/3306/slow.log
 
 # AB
 replicate_wild_ignore_table = information_schema.%

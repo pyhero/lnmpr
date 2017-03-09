@@ -1,11 +1,11 @@
-/ROOT/log/nginx/*.log {
+/ROOT/logs/nginx/*.log {
         daily
 	dateext
         rotate 60
 	size 100k
         missingok
         compress
-        olddir /ROOT/log/nginx/Rotates
+        olddir /ROOT/logs/nginx/Rotates
         postrotate
                 /bin/kill -USR1 $(cat /ROOT/tmp/nginx.pid 2>/dev/null) 2>/dev/null || :
         endscript

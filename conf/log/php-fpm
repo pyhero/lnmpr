@@ -1,11 +1,11 @@
-/ROOT/log/php-fpm/*.log {
+/ROOT/logs/php-fpm/*.log {
         daily
         dateext
         rotate 60
 	size 100k
         missingok
         compress
-        olddir /ROOT/log/php-fpm/Rotates
+        olddir /ROOT/logs/php-fpm/Rotates
         postrotate
                 /bin/kill -USR1 $(cat /ROOT/tmp/php-fpm.pid 2>/dev/null) 2>/dev/null || :
         endscript
