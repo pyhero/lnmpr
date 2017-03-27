@@ -4,9 +4,9 @@
 # Update: 2015-06-18
 
 nginx='nginx-1.6.3'
-#mysql="mysql-5.6.25"
+mysql="mysql-5.7.16"
 # percona url need to modify!!!
-mysql="percona-server-5.6.29-76.2"
+#mysql="percona-server-5.6.29-76.2"
 php="php-5.6.21"
 redis="redis-2.8.21"
 file="tar.gz"
@@ -212,8 +212,8 @@ install_php () {
 install_mysql () {
 	echo -e "\e[36mInstall mysql ... \e[0m"
 	src_insall=${mysql}.${file}
-	#url="http://cdn.mysql.com/Downloads/MySQL-5.6/$src_insall"
-	url="https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.29-76.2/source/tarball/$src_insall"
+	url="http://cdn.mysql.com/Downloads/MySQL-5.7/$src_insall"
+	#url="https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.29-76.2/source/tarball/$src_insall"
 	download
 	test_act
 	tar zxf $src_insall -C $src/ && cd $src/$mysql
