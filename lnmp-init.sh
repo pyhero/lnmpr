@@ -236,9 +236,9 @@ install_mysql () {
 	rsync -az $conf/mysql/my.cnf $mydef
 
 	# initinlize database!
-	cd /ROOT/server/mysql-5.6
+	cd /ROOT/server/mysql-5.7
 	./scripts/mysql_install_db --user=mysql --datadir=/ROOT/data/mysql/3306 --defaults-file=/ROOT/data/mysql/3306/3306.cnf
-	rsync -az /ROOT/server/mysql-5.6/bin/mysql* /ROOT/bin/
+	rsync -az /ROOT/server/mysql-5.7/bin/mysql* /ROOT/bin/
 	test_act
 
 	rsync -az $plugin/mysqld-3306 /etc/init.d/
