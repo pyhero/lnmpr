@@ -211,7 +211,8 @@ install_php () {
 # install mysql
 install_mysql () {
 	echo -e "\e[36mInstall mysql ... \e[0m"
-	src_insall=$(echo ${mysql}|sed 's/mysql/mysql-boost/').${file}
+	#src_insall=$(echo ${mysql}|sed 's/mysql/mysql-boost/').${file}
+	src_insall=${mysql}.${file}
 	url="http://cdn.mysql.com/Downloads/MySQL-5.7/$src_insall"
 	#url="https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.29-76.2/source/tarball/$src_insall"
 	download
