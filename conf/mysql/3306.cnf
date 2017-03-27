@@ -6,7 +6,7 @@ port				= 3306
 server_id			= 863306
 default_storage_engine		= InnoDB
 socket				= /ROOT/tmp/mysql-3306.sock
-basedir				= /ROOT/server/mysql-5.6
+basedir				= /ROOT/server/mysql-5.7
 
 # slave
 #read_only			= 1
