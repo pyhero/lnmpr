@@ -99,3 +99,4 @@ replicate_wild_ignore_table = information_schema.%
 #replicate_wild_ignore_table = mysql.%
 replicate_wild_ignore_table = test.%
 
+#skip-grant-tables
