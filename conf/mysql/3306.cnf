@@ -61,12 +61,12 @@ explicit_defaults_for_timestamp = 1
 # MyISAM #
 key_buffer_size			= 64M
 myisam_sort_buffer_size		= 64M
-myisam_recover			= FORCE,BACKUP
+#myisam_recover			= FORCE,BACKUP
 myisam_repair_threads		= 1
 
 # INNODB #
 innodb_data_home_dir		= /ROOT/data/mysql/3306
-innodb_data_file_path		= ibdata1:200M:autoextend
+#innodb_data_file_path		= ibdata1:200M:autoextend
 innodb_log_group_home_dir	= /ROOT/logs/mysql/3306
 innodb_log_files_in_group	= 2
 innodb_log_file_size		= 512M

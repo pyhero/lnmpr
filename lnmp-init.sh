@@ -225,9 +225,9 @@ install_mysql () {
 	test_act
 
 	mkdir -p /ROOT/logs/mysql/3306 /ROOT/logs/mybinlog/3306 /ROOT/data/mysql/3306
-	chown -R mysql.mysql /ROOT/logs/mysql /ROOT/logs/mybinlog /ROOT/data/mysql
+	chown -R mysql.mysql /ROOT/logs/mysql /ROOT/logs/mybinlog /ROOT/data/mysql /ROOT/conf/mysql
 	chmod 750 /ROOT/logs/mybinlog /ROOT/data/mysql
-	rsync -az --delete $conf/mysql/3306.cnf /ROOT/data/mysql/3306/
+	rsync -az --delete $conf/mysql/3306.cnf /ROOT/conf/mysql/
 	mydef=/etc/my.cnf
 	if [ -f $mydef ];then
 		today=$(date "+%F")
@@ -239,8 +239,7 @@ install_mysql () {
 	cd /ROOT/server/mysql-5.7
 	rsync -az /ROOT/server/mysql-5.7/bin/mysql* /ROOT/bin/
 	#./scripts/mysql_install_db --user=mysql --datadir=/ROOT/data/mysql/3306 --defaults-file=/ROOT/data/mysql/3306/3306.cnf
-	/ROOT/bin/mysql_install_db --user=mysql --datadir=/ROOT/data/mysql/3306 --defaults-file=/ROOT/data/mysql/3306/3306.cnf
-	test_act
+	/ROOT/bin/mysql_install_db --defaults-file=/ROOT/data/mysql/3306/3306.cnf --user=mysql --datadir=/ROOT/data/mysql/3306 --basedir=/ROOT/server/mysql-5.7
 
 	rsync -az $plugin/mysqld-3306 /etc/init.d/
 	rsync -az $plugin/myinit /ROOT/sh
