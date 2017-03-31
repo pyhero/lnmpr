@@ -226,8 +226,8 @@ install_mysql () {
 	make > /dev/null && make install > /dev/null
 	test_act
 
-	mkdir -p /ROOT/logs/mysql/3306 /ROOT/logs/mybinlog/3306 /ROOT/data/mysql/3306
-	chown -R mysql.mysql /ROOT/logs/mysql /ROOT/logs/mybinlog /ROOT/data/mysql /ROOT/conf/mysql
+	mkdir -p /ROOT/logs/mysql/3306 /ROOT/logs/mybinlog/3306 /ROOT/data/mysql/3306 /ROOT/conf/mysql
+	chown -R mysql.mysql /ROOT/logs/mysql /ROOT/logs/mybinlog /ROOT/data/mysql
 	chmod 750 /ROOT/logs/mybinlog /ROOT/data/mysql
 	rsync -az --delete $conf/mysql/3306.cnf /ROOT/conf/mysql/
 	mydef=/etc/my.cnf
