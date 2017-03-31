@@ -95,7 +95,7 @@ long_query_time			= 1
 slow_query_log_file		= /ROOT/logs/mysql/3306/slow.log
 
 # AB
-replicate_wild_ignore_table = information_schema.%
+#replicate_wild_ignore_table = information_schema.%
 #replicate_wild_ignore_table = mysql.%
 replicate_wild_ignore_table = test.%
 
