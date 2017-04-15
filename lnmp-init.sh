@@ -17,7 +17,7 @@ echo -e "\e[36mInstall plugins ... \e[0m"
 yum -q install -y gcc* autoconf automake ncurses-devel make cmake
 
 # install / update plugin
-yum -q install -y zlib zlib-devel openssl openssl-devel libxml2-devel libjpeg-devel libpng-devel freetype-devel libcurl-devel libmcrypt-devel ncurses-devel libtool-ltdl-devel bison bison-devel pcre pcre-devel libxslt libxslt-devel perl perl-devel perl-ExtUtils-Embed GeoIP GeoIP-devel re2c bzip2 bzip2-devel openldap-devel ImageMagick-devel
+yum -q install -y zlib-devel openssl openssl-devel libxml2-devel libjpeg-devel libpng-devel freetype-devel libcurl-devel libmcrypt-devel ncurses-devel libtool-ltdl-devel bison bison-devel pcre pcre-devel libxslt libxslt-devel perl perl-devel perl-ExtUtils-Embed GeoIP GeoIP-devel re2c bzip2 bzip2-devel openldap-devel ImageMagick-devel
 
 # Test directory exits,if not mkdir it
 test_dir () {
