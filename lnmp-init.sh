@@ -8,7 +8,8 @@ mysql="mysql-5.7.16"
 # percona url need to modify!!!
 #mysql="percona-server-5.6.29-76.2"
 php="php-5.6.21"
-redis="redis-2.8.21"
+#redis="redis-2.8.21"
+redis="redis-3.2.8"
 file="tar.gz"
 
 # install / update edit
